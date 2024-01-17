@@ -42,7 +42,6 @@ export default function Education() {
             </div>
             <div className={editing ? "educationInput active" : "educationInput inactive"}>
             <TextInput 
-                className="educationInput"
                 label="Dates: "
                 placeholder="Dates in School"
                 value={education.dates}

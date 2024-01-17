@@ -17,8 +17,6 @@ export default function GeneralInfo() {
         setGeneralInfo({...generalInfo, phone: e.target.value})
     }
     function handleEditClick() {
-        // edit display of inputs and non-input divs?
-        // use state to 'toggle' hidden / show class
         setEditing(true);
     }
     function handleSubmitClick() {
@@ -47,8 +45,7 @@ export default function GeneralInfo() {
             </div>
             <div className={editing ? "generalInfoInput active" : "generalInfoInput inactive"}>
             <TextInput 
-                className="generalInfoInput"
-                label="Name: "
+                label="Phone: "
                 placeholder="555-555-5555"
                 value={generalInfo.phone}
                 onChange={handlePhoneChange}                
