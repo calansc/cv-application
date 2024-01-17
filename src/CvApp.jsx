@@ -1,12 +1,15 @@
 import { useState } from 'react'
-import TextInput from './CustomInput'
+import GeneralInfo from './GeneralInfo'
+import Education from './Education'
 import './styles/App.css'
 
 function CvApp() {
-  // const [count, setCount] = useState(0)
 
   return (
-<div>Hello</div>
+<div className="cv-application">
+  <GeneralInfo />
+  <Education />
+</div>
   )
 }
 
