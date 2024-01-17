@@ -1,10 +1,12 @@
 
 import TextInput from "./CustomInput"
-import EditButton from "./EditButton";
+import Buttons from "./Buttons";
+import './styles/GeneralInfo.css'
 import { useState } from "react"
 
 export default function GeneralInfo() {
     const [generalInfo, setGeneralInfo] = useState({fullName:'', email:'', phone:''});
+    const [editing, setEditing] = useState(true);
     function handleFullNameChange(e) {
         setGeneralInfo({...generalInfo, fullName: e.target.value});
     }
@@ -14,34 +16,55 @@ export default function GeneralInfo() {
     function handlePhoneChange(e) {
         setGeneralInfo({...generalInfo, phone: e.target.value})
     }
+    function handleEditClick() {
+        // edit display of inputs and non-input divs?
+        // use state to 'toggle' hidden / show class
+        setEditing(true);
+    }
+    function handleSubmitClick() {
+        setEditing(false);
+    }
+
 
     return (
         <div className="generalInfo">General Info
             <br/>
+            <div className={editing ? "generalInfoInput active" : "generalInfoInput inactive"}>
             <TextInput 
                 label="Name: "
                 placeholder="Your Name"
                 value={generalInfo.fullName}
                 onChange={handleFullNameChange}                
             />
-            <br/>
+            </div>
+            <div className={editing ? "generalInfoInput active" : "generalInfoInput inactive"}>
             <TextInput 
                 label="Email: "
                 placeholder="Your@Email.com"
                 value={generalInfo.email}
                 onChange={handleEmailChange}                
             />
-            <br/>
+            </div>
+            <div className={editing ? "generalInfoInput active" : "generalInfoInput inactive"}>
             <TextInput 
+                className="generalInfoInput"
                 label="Name: "
                 placeholder="555-555-5555"
                 value={generalInfo.phone}
                 onChange={handlePhoneChange}                
             />
-            <div>{generalInfo.fullName}</div>
-            <div>{generalInfo.email}</div>
-            <div>{generalInfo.phone}</div>
-            <EditButton />
+            </div>
+            <div className={editing ? "generalInfoText inactive" : "generalInfoText active"}>{generalInfo.fullName}</div>
+            <div className={editing ? "generalInfoText inactive" : "generalInfoText active"}>{generalInfo.email}</div>
+            <div className={editing ? "generalInfoText inactive" : "generalInfoText active"}>{generalInfo.phone}</div>
+            <Buttons 
+            name="Edit"
+            onClick={handleEditClick}
+            />
+             <Buttons 
+             name="Submit"
+            onClick={handleSubmitClick}
+            />
         </div>
     )
 }
