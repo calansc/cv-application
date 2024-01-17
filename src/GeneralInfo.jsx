@@ -38,6 +38,7 @@ export default function GeneralInfo() {
             <div className={editing ? "generalInfoInput active" : "generalInfoInput inactive"}>
             <TextInput 
                 label="Email: "
+                type="email"
                 placeholder="Your@Email.com"
                 value={generalInfo.email}
                 onChange={handleEmailChange}                
@@ -46,6 +47,7 @@ export default function GeneralInfo() {
             <div className={editing ? "generalInfoInput active" : "generalInfoInput inactive"}>
             <TextInput 
                 label="Phone: "
+                type="tel"
                 placeholder="555-555-5555"
                 value={generalInfo.phone}
                 onChange={handlePhoneChange}                

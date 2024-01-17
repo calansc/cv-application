@@ -3,7 +3,7 @@ import TextInput from "./CustomInput";
 import Buttons from "./Buttons";
 
 export default function PracticalExperience() {
-    const [practicalExperience, setPracticalExperience] = useState({company:'', position:'', responsibilities:'', dates:''});
+    const [practicalExperience, setPracticalExperience] = useState({company:'', position:'', responsibilities:'', dateStart:'', dateEnd:''});
     const [editing, setEditing] = useState(true);
     function handleCompanyChange(e) {
         setPracticalExperience({...practicalExperience, company: e.target.value});
@@ -14,8 +14,11 @@ export default function PracticalExperience() {
     function handleResponsibilitiesChange(e) {
         setPracticalExperience({...practicalExperience, responsibilities: e.target.value})
     }
-    function handleDatesChange(e) {
-        setPracticalExperience({...practicalExperience, dates: e.target.value})
+    function handleDateStartChange(e) {
+        setPracticalExperience({...practicalExperience, dateStart: e.target.value})
+    }
+    function handleDateEndChange(e) {
+        setPracticalExperience({...practicalExperience, dateEnd: e.target.value})
     }
     function handleEditClick() {
         setEditing(true);
@@ -53,10 +56,20 @@ export default function PracticalExperience() {
             </div>
             <div className={editing ? "practicalExperienceInput active" : "practicalExperienceInput inactive"}>
             <TextInput 
-                label="Dates: "
+                label="Start Date: "
+                type="month"
                 placeholder="Period of Employment"
-                value={practicalExperience.dates}
-                onChange={handleDatesChange}                
+                value={practicalExperience.dateStart}
+                onChange={handleDateStartChange}                
+            />
+            </div>
+            <div className={editing ? "practicalExperienceInput active" : "practicalExperienceInput inactive"}>
+            <TextInput 
+                label="End Date: "
+                type="month"
+                placeholder="Period of Employment"
+                value={practicalExperience.dateEnd}
+                onChange={handleDateEndChange}                
             />
             </div>
             <div className={editing ? "practicalExperienceText inactive" : "practicalExperienceText active"}>{practicalExperience.company}</div>

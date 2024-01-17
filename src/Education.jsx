@@ -3,7 +3,7 @@ import TextInput from "./CustomInput";
 import Buttons from "./Buttons";
 
 export default function Education() {
-    const [education, setEducation] = useState({school:'', degree:'', dates:''});
+    const [education, setEducation] = useState({school:'', degree:'', date1:'', date2:''});
     const [editing, setEditing] = useState(true);
     function handleSchoolChange(e) {
         setEducation({...education, school: e.target.value});
@@ -11,8 +11,11 @@ export default function Education() {
     function handleDegreeChange(e) {
         setEducation({...education, degree: e.target.value})
     }
-    function handleDatesChange(e) {
-        setEducation({...education, dates: e.target.value})
+    function handleDate1Change(e) {
+        setEducation({...education, date1: e.target.value})
+    }
+    function handleDate2Change(e) {
+        setEducation({...education, date2: e.target.value})
     }
     function handleEditClick() {
         setEditing(true);
@@ -42,15 +45,26 @@ export default function Education() {
             </div>
             <div className={editing ? "educationInput active" : "educationInput inactive"}>
             <TextInput 
-                label="Dates: "
-                placeholder="Dates in School"
-                value={education.dates}
-                onChange={handleDatesChange}                
+                label="Start Date: "
+                type="month"
+                placeholder="School Start date"
+                value={education.date1}
+                onChange={handleDate1Change}                
+            />
+            </div>
+            <div className={editing ? "educationInput active" : "educationInput inactive"}>
+            <TextInput 
+                label="End Date: "
+                type="month"
+                placeholder="School End date"
+                value={education.date2}
+                onChange={handleDate2Change}                
             />
             </div>
             <div className={editing ? "educationText inactive" : "educationText active"}>{education.school}</div>
             <div className={editing ? "educationText inactive" : "educationText active"}>{education.degree}</div>
-            <div className={editing ? "educationText inactive" : "educationText active"}>{education.dates}</div>
+            <div className={editing ? "educationText inactive" : "educationText active"}>{education.date1}</div>
+            <div className={editing ? "educationText inactive" : "educationText active"}>{education.date2}</div>
             <Buttons 
             name="Edit"
             onClick={handleEditClick}

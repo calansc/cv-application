@@ -1,9 +1,9 @@
-export default function TextInput({label, placeholder, value, onChange}) {
+export default function TextInput({label, type, placeholder, value, onChange}) {
     return (
         <>
         <label>{label}</label>
          <input
-        type="text"
+        type={type}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
