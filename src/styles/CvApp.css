@@ -1,0 +1,38 @@
+#root {
+}
+*{
+  margin:0px;
+  padding:0px;
+}
+.inactive {
+  display:none;
+}
+.active {
+  display:block;
+}
+.cv-application {
+  /* border: solid 3px black;
+  border-radius: 8px; */
+  background-color: #415a77;
+  width: 40vw;
+  height: 120vh;
+  max-width: 300px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  padding: 8px;
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.cv-application input {
+  border: solid 1px black;
+  border-radius: 8px;
+  padding: 3px;
+}
+.generalInfo, .education, .practicalExperience {
+  background-color: white;
+  border-radius: 12px;
+  padding:8px;
+  margin: 8px;
+  
+}

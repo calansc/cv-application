@@ -1,0 +1,22 @@
+cv-application
+    edit button
+    submit button
+    general info
+        name
+        email
+        phone
+    education
+        school
+        degree
+        dates
+    practical experience
+        company
+        position
+        responsibilities
+        dates
+    edit button
+    submit button
+
+
+components in src
+style dir in src

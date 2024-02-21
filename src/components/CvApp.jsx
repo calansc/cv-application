@@ -3,18 +3,24 @@ import GeneralInfo from './GeneralInfo'
 import Education from './Education'
 import PracticalExperience from './PracticalExperience'
 import Buttons from './Buttons'
-import './styles/App.css'
+import '../styles/CvApp.css'
 
 function CvApp() {
   const [educationList, setEducationList] = useState([]);
   const [practicalExperienceList, setPracticalExperienceList] = useState([]);
+  const [finalCV, setFinalCV] = useState([false]);
+  // button to display CV without buttons / input fields. 
+  // Download as pdf?
   function handleEducationAdd() {
-    // add another Education component? 
+    // add another Education component
     setEducationList(educationList.concat(<Education key={educationList.length}/>))
   }
   function handlePracticalExperienceAdd() {
-    // add another Education component? 
+    // add another Education component
     setPracticalExperienceList(practicalExperienceList.concat(<PracticalExperience key={practicalExperienceList.length}/>))
+  }
+  function handleFinalize() {
+    finalCV ? setFinalCV(false) : setFinalCV(true)
   }
 
   return (
@@ -23,6 +29,7 @@ function CvApp() {
   <Education />
   {educationList}
   <Buttons 
+    // className={finalCV ? "active" : "inactive"}
     name="Add Another Education"
     onClick={handleEducationAdd}
   />
@@ -31,6 +38,11 @@ function CvApp() {
   <Buttons 
     name="Add Another Practical Experience"
     onClick={handlePracticalExperienceAdd}
+  />
+  <br />
+  <Buttons
+    name="Finalize"
+    onClick={handleFinalize}
   />
 </div>
 //Add Finalize Button to remove Edit/Submit Buttons

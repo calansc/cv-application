@@ -1,7 +1,7 @@
 
 import TextInput from "./CustomInput"
 import Buttons from "./Buttons";
-import './styles/GeneralInfo.css'
+import '../styles/GeneralInfo.css'
 import { useState } from "react"
 
 export default function GeneralInfo() {
